@@ -4,38 +4,21 @@ from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushBut
 from PyQt5.QtGui import QFont
 
 from DefaultWindow import DefaultWindow
-from LearnWindowPre1 import LearnWindowPre1
+from GroupSelect import GroupSelect
 
-class MainWindow(DefaultWindow):
+class MainWindow():
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, stack):
+        stack.setCurrentIndex(0)
+        self.stack = stack
+        self.widget = self.stack.currentWidget()
+        self.stack.show()
 
-        self.windows = QStackedWidget()
-
-        self.label_title = QLabel(self.title, self)
-        self.label_title.setFont(QFont('Arial', 100))
-        self.label_title.move(100, 100)
-
-        self.button_learn = QPushButton("Learn", self)
-        self.button_test = QPushButton("Test", self)
-        self.button_about = QPushButton("About", self)
-
-        self.button_learn.setFont(QFont("Arial", 20))
-        self.button_test.setFont(QFont("Arial", 20))
-        self.button_about.setFont(QFont("Arial", 20))
-
-        self.button_learn.setGeometry(300, 350, 600, 100)
-        self.button_test.setGeometry(300, 500, 600, 100)
-        self.button_about.setGeometry(300, 650, 600, 100)
-
-        self.button_learn.clicked.connect(self.clicked_learn)
-    
-    #def initUI(self):
+        self.learnButton = self.widget.findChild(QPushButton, 'learnButton')
+        self.learnButton.clicked.connect(self.clicked_learn)
 
     def clicked_learn(self):
-        self.LWP1 = LearnWindowPre1()
-        self.LWP1.initUI(self)
-        self.LWP1.show()
-        self.close()
+        self.GS = GroupSelect(self.stack)
+    
+    
 

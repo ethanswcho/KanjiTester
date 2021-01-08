@@ -4,7 +4,6 @@ import json, os
 
 def get_sorted_kanjis():
     
-    
     kanji_dir = os.path.join(os.getcwd(), "kanji-data-master/kanji.json")
     f = open(kanji_dir, encoding="utf-8", errors="ignore")
 
