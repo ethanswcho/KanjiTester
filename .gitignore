@@ -1,4 +1,4 @@
 *.pyc
 notes.txt
-.vscode*
-*.pyc
+.vscode/
+kanji-data-master/

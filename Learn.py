@@ -9,33 +9,27 @@ from DefaultWindow import DefaultWindow
 class Learn():
 
     def __init__(self, stack, kanjilist):
-        #stack.setCurrentIndex(2)
-        #self.stack = stack
-        #self.widget = self.stack.currentWidget()
-    
-        #self.widget.setLayout(self.kanjilist_to_layout(kanjilist))
 
         self.stack = stack
 
-        widget = QWidget()
-        layout = self.kanjilist_to_layout(kanjilist)
-        layout.addWidget(widget)
-        widget.setLayout = self.kanjilist_to_layout(kanjilist)
-        self.widget = widget
+        # Get kanjilist widget and show
+        widget  = self.kanjilist_to_layout(kanjilist)
         self.stack.addWidget(widget)
-        self.stack.setCurrentWidget(self.widget)
-        self.widget.show()
-        #self.stack.show()
+        self.stack.setCurrentWidget(widget)
+        self.stack.show()
+
+        # Return back to previous page if "back" is pressed
+        # !!! TODO
         
 
-    # Takes in the kanjilist and returns a scrollable vertical layout with kanji and its information. 
+    # Takes in the kanjilist and returns a scrollable vertical widget that contains kanjis from input kanjilist
     def kanjilist_to_layout(self, kanjilist):
 
         form_layout = QFormLayout()
         group = QGroupBox()
 
-        kanjis = []
-        infos = []
+        font_kanji = QFont("Times", 30, QFont.Bold)
+        font_info = QFont("Times", 15,)
 
         for index in range(len(kanjilist)): 
             
@@ -51,18 +45,12 @@ class Learn():
 
             info = 'Meanings: {}\nReading (Onyomi): {}\nReadings (Kunyomi): {}\nStrokes: {}'.format(meanings, readings_onyomi, readings_kunyomi, strokes)
             
-            kanjis.append(QLabel(kanji))
-            infos.append(QLabel(info))
-
-            form_layout.addRow(kanjis[index], infos[index])
-
-            """
-            table = QTableWidget()
-            table.setRowCount(4)
-            table.setColumnCount(2)
-
-            table.setItem(0, 0, )
-            """
+            kanji = QLabel(kanji)
+            info = QLabel(info)
+            kanji.setFont(font_kanji)
+            info.setFont(font_info)
+            
+            form_layout.addRow(kanji, info)
         
         group.setLayout(form_layout)
         scroll = QScrollArea()
@@ -71,8 +59,12 @@ class Learn():
 
         layout = QVBoxLayout()
         layout.addWidget(scroll)
+        widget = QWidget()
+        widget.setLayout(layout)
 
-        return layout
+        #widget.show()
+
+        return widget
 
         
             
