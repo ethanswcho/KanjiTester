@@ -2,6 +2,7 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea
 from PyQt5.QtGui import QFont
+from PyQt5.QtCore import QRect
 from BackButton import BackButton
 
 from DefaultWindow import DefaultWindow
@@ -12,26 +13,15 @@ class Learn():
     def __init__(self, stack, kanjilist):
 
         self.stack = stack
-
-        # Get kanjilist widget and show
-        self.widget  = self.kanjilist_to_layout(kanjilist)
-        #self.add_back_button()
+        self.widget  = self.get_widget(kanjilist)
+        BackButton(self.widget, self.stack, 1)
         self.stack.addWidget(self.widget)
         self.stack.setCurrentWidget(self.widget)
-        self.stack.show()
-        
-    def add_back_button(self):
-        button = QPushButton('Back', self.widget)
-        button.clicked.connect(self.go_back)
-        button.move(30, 20) 
-
-    def go_back(self):
-        self.stack.setCurrentIndex(1)
         self.stack.show()
 
 
     # Takes in the kanjilist and returns a scrollable vertical widget that contains kanjis from input kanjilist
-    def kanjilist_to_layout(self, kanjilist):
+    def get_widget(self, kanjilist):
 
         form_layout = QFormLayout()
         group = QGroupBox()
@@ -67,10 +57,9 @@ class Learn():
 
         layout = QVBoxLayout()
         layout.addWidget(scroll)
+        #layout.setGeometry(QRect(20, 20, 100, 100))
         widget = QWidget()
         widget.setLayout(layout)
-
-        #widget.show()
 
         return widget
 

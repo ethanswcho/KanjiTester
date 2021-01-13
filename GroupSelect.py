@@ -6,14 +6,17 @@ from PyQt5.QtGui import QFont
 from DefaultWindow import DefaultWindow
 from Kanjis import Kanjis
 from Learn import Learn
+from BackButton import BackButton
 
 class GroupSelect():
 
-    def __init__(self, stack):
+    def __init__(self, stack, mode):
         stack.setCurrentIndex(1)
         self.stack = stack
         self.widget = self.stack.currentWidget()
-        self.stack.show()
+        self.mode = mode
+
+        self.BackButton = BackButton(self.widget, self.stack, 0)
         
         self.N1 = self.widget.findChild(QPushButton, 'N1')
         self.N2 = self.widget.findChild(QPushButton, 'N2')
@@ -27,16 +30,24 @@ class GroupSelect():
         self.N4.clicked.connect(lambda: self.clicked_N(self.N4.text()))
         self.N5.clicked.connect(lambda: self.clicked_N(self.N5.text()))
 
-        self.Kanjis = Kanjis()
+        kanjis = Kanjis()
+        self.Kanjis = kanjis.get_instance()
+
+        self.stack.show()
+        self.BackButton.show()
+        
     
+    # Fillter Kanjis to chosen level and pass it onto Learn/Test
     def clicked_N(self, level):
-        #Strip N from level
         print('level selected: ' + level)
         level = level.replace('N', '')
         
-        filtered_kanjis = self.Kanjis.get_kanjis(level)
-        filtered_kanjis = filtered_kanjis[level]
-        self.Learn = Learn(self.stack, filtered_kanjis)
+        filtered_kanjis = self.Kanjis[level]
+
+        if self.mode == "learn":
+            self.Learn = Learn(self.stack, filtered_kanjis)
+        elif self.mode == "test":
+            pass
 
         
 

@@ -16,9 +16,13 @@ class MainWindow():
 
         self.learnButton = self.widget.findChild(QPushButton, 'learnButton')
         self.learnButton.clicked.connect(self.clicked_learn)
+        
+        self.testButton = self.widget.findChild(QPushButton, 'testButton')
+        self.testButton.clicked.connect(self.clicked_test)
 
     def clicked_learn(self):
-        self.GS = GroupSelect(self.stack)
+        self.GS = GroupSelect(self.stack, mode="learn")
     
-    
+    def clicked_test(self):
+        self.GS = GroupSelect(self.stack, mode="test")
 
