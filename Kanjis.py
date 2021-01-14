@@ -14,7 +14,7 @@ class Kanjis:
     # Private constructor. Only called when access method is called first time.
     def __init__(self):
         if Kanjis.__instance != None:
-            raise Exception("Violating singleton design of Kanjis")
+            self = Kanjis.__instance
         #Load Kanjis from /kanji_db/jlpt.json
         else:
             kanji_dir = 'kanjis_db/jlpt.json'

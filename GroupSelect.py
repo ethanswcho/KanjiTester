@@ -7,6 +7,7 @@ from DefaultWindow import DefaultWindow
 from Kanjis import Kanjis
 from Learn import Learn
 from BackButton import BackButton
+from Test import Test
 
 class GroupSelect():
 
@@ -47,7 +48,7 @@ class GroupSelect():
         if self.mode == "learn":
             self.Learn = Learn(self.stack, filtered_kanjis)
         elif self.mode == "test":
-            pass
+            self.Test = Test(self.stack, filtered_kanjis)
 
         
 
