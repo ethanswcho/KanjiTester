@@ -15,13 +15,26 @@ class Test():
     def __init__(self, stack, kanjilist):
 
         self.stack = stack
+        self.num_qs = 10
+        self.attempt = np.zeros(self.num_qs)
+
         self.widget  = self._get_widget(kanjilist)
         BackButton(self.widget, self.stack, 1)
+        FinishedButton = QPushButton("Finished", self.widget)
+        FinishedButton.move(1090, 10)
+        FinishedButton.clicked.connect(self._load_results)
+    
         self.stack.addWidget(self.widget)
         self.stack.setCurrentWidget(self.widget)
         self.stack.show()
-        self.num_qs = 10
-        self.attempt = np.zeros(self.num_qs)
+        
+    def _load_results(self):
+        
+        self.attempt = [button.text() for button in self.button_grps if button.isChecked()]
+        for a in self.attempt:
+            print(a)
+
+
     
     def _get_widget(self, kanjilist):
 
@@ -31,7 +44,7 @@ class Test():
 
         font_kanji = QFont("Times", 50, QFont.Bold)
         layout_margins = QMargins(50, 50, 50, 50)
-        question_margins = QMargins(50, 30, 30, 0)
+        question_margins = QMargins(50, 30, 0, 0)
 
         end = len(kanjilist)
         kanjis = [list(entry.keys())[0] for entry in kanjilist]
@@ -43,6 +56,7 @@ class Test():
         selected_indexes = random.sample(possible_kanjis, self.num_qs)
         
         self.answerkey = []
+        self.button_grps = []
     
         for index in selected_indexes: 
 
@@ -66,6 +80,9 @@ class Test():
             r2 = QRadioButton(answers[2])
             r3 = QRadioButton(answers[3])
 
+            #self.button_grps.append([r0, r1, r2, r3])
+            self.button_grps = self.button_grps + [r0, r1, r2, r3]
+
             button_grp = QVBoxLayout()
             button_grp.addWidget(r0)
             button_grp.addWidget(r1)
@@ -83,8 +100,6 @@ class Test():
         layout = QVBoxLayout()
         layout.setContentsMargins(layout_margins)
         layout.addWidget(scroll)
-        #layout.setGeometry(QRect(20, 20, 100, 100))
         
         widget.setLayout(layout)
-
         return widget

@@ -5,19 +5,14 @@ from PyQt5.QtGui import QFont
 
 from DefaultWindow import DefaultWindow
 
-# Creates a Back Button AND adds itself to the widget.
-# BackButton located in top left of each window that allows users to traverse backwards.
+# Creates a Finshed Button AND adds itself to the widget.
+# Finished button located in top right of test window that allows users to submit their solution (to get it marked)
 # Key argument "Destination" allows this button to traverse to the approrpiate page when pressed.
 
-class BackButton(QPushButton):
+class FinishButton(QPushButton):
 
-    def __init__(self, widget, stack, destination):
-        super().__init__('Back', widget)
-        self.destination = destination
+    def __init__(self, widget, stack):
         self.stack = stack
         self.move(10, 10)
         self.clicked.connect(self._pressed)
     
-    def _pressed(self):
-        self.stack.setCurrentIndex(self.destination)
-        self.stack.show()
