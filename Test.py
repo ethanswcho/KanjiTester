@@ -3,7 +3,7 @@ import random
 import numpy as np
 
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea, QRadioButton, QButtonGroup
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtCore import QRect, QMargins
 from BackButton import BackButton
 
@@ -104,7 +104,7 @@ class Test():
             button_layout.addWidget(r2)
             button_layout.addWidget(r3)
 
-            # The box of 4 shuffled radion buttons, including one correct option is one group (one question)
+            # The box of 4 shuffled radio buttons, including one correct option is one group (one question)
             button_grp = QButtonGroup()
             button_grp.addButton(r0, 0)
             button_grp.addButton(r1, 1)
