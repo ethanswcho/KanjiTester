@@ -5,6 +5,7 @@ from PyQt5.QtGui import QFont
 
 from DefaultWindow import DefaultWindow
 from GroupSelect import GroupSelect
+from About import About
 
 class MainWindow():
 
@@ -20,9 +21,15 @@ class MainWindow():
         self.testButton = self.widget.findChild(QPushButton, 'testButton')
         self.testButton.clicked.connect(self.clicked_test)
 
+        self.aboutButton = self.widget.findChild(QPushButton, 'aboutButton')
+        self.aboutButton.clicked.connect(self.clicked_about)
+
     def clicked_learn(self):
         self.GS = GroupSelect(self.stack, mode="learn")
     
     def clicked_test(self):
         self.GS = GroupSelect(self.stack, mode="test")
+    
+    def clicked_about(self):
+        self.About = About(self.stack)
 

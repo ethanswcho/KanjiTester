@@ -26,7 +26,7 @@ class Result():
 
         # When user is done reviewing the results, they can go back to the title screen.
         ToTitleButton = QPushButton("Back to Title", self.widget)
-        ToTitleButton.move(1090, 10)
+        ToTitleButton.move(10, 10)
         ToTitleButton.clicked.connect(self._back_to_title)
 
         self.stack.addWidget(self.widget)

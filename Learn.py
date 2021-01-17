@@ -2,7 +2,7 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea
 from PyQt5.QtGui import QFont
-from PyQt5.QtCore import QRect
+from PyQt5.QtCore import QRect, QMargins
 from BackButton import BackButton
 
 from DefaultWindow import DefaultWindow
@@ -57,7 +57,8 @@ class Learn():
 
         layout = QVBoxLayout()
         layout.addWidget(scroll)
-        #layout.setGeometry(QRect(20, 20, 100, 100))
+        layout_margins = QMargins(50, 50, 50, 50)
+        layout.setContentsMargins(layout_margins)
         widget = QWidget()
         widget.setLayout(layout)
 

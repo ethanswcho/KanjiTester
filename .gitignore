@@ -2,3 +2,5 @@
 notes.txt
 .vscode/
 kanji-data-master/
+*.pyc
+__pycache__/MainWindow.cpython-38.pyc
