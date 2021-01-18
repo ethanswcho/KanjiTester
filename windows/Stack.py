@@ -11,4 +11,5 @@ class Stack(QStackedWidget):
     def __init__(self):
         super(Stack, self).__init__()
         loadUi('uis/Stack.ui', self)
+        self.setWindowTitle("Kanji Tester")
 
