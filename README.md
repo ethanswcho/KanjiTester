@@ -19,7 +19,7 @@ It is a good way to test your understanding of Japanese language and can boost y
 There are currently 5 levels to JLPT, N5 to N1, N1 being the hardest and N5 being the easiest.
 
 ## About Kanjis used in this project
-I forked the Kanji database from [this github repository](https://github.com/davidluzgouveia/kanji-data)
+I forked the Kanji database from [this github repository](https://github.com/davidluzgouveia/kanji-data).
 I made a quick script (located inside kanjis_db folder) to filter the database by JLPT levels.
 Please note that JLPT exams, especially ones in higher levels, can ask various different Kanjis. 
 Kanjis used in this project do not encompass all possible Kanjis that could appear in JLPT exams, but is a good estimate.
