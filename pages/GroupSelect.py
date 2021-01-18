@@ -3,11 +3,11 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton
 from PyQt5.QtGui import QFont
 
-from DefaultWindow import DefaultWindow
-from Kanjis import Kanjis
-from Learn import Learn
-from BackButton import BackButton
-from Test import Test
+from windows.DefaultWindow import DefaultWindow
+from kanjis_db.Kanjis import Kanjis
+from .Learn import Learn
+from buttons.BackButton import BackButton
+from .Test import Test
 
 class GroupSelect():
 
@@ -40,7 +40,7 @@ class GroupSelect():
     
     # Fillter Kanjis to chosen level and pass it onto Learn/Test
     def _clicked_N(self, level):
-        print('level selected: ' + level)
+        #print('level selected: ' + level)
         level = level.replace('N', '')
         
         filtered_kanjis = self.Kanjis[level]

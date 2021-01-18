@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea
 from PyQt5.QtGui import QFont
 
-from DefaultWindow import DefaultWindow
+from windows.DefaultWindow import DefaultWindow
 
 # Creates a Back Button AND adds itself to the widget.
 # BackButton located in top left of each window that allows users to traverse backwards.

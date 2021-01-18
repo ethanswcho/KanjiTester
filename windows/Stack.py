@@ -2,7 +2,8 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QStackedWidget
 from PyQt5.uic import loadUi
-from MainWindow import MainWindow
+
+from .MainWindow import MainWindow
 
 # Stack of UIs. Generated on Qt Designer and loaded using loadUi method.
 

@@ -3,9 +3,9 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QStackedWidget
 from PyQt5.QtGui import QFont
 
-from DefaultWindow import DefaultWindow
-from GroupSelect import GroupSelect
-from About import About
+from .DefaultWindow import DefaultWindow
+from pages.GroupSelect import GroupSelect
+from pages.About import About
 
 class MainWindow():
 

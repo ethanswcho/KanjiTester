@@ -3,9 +3,9 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import QRect, QMargins
-from BackButton import BackButton
 
-from DefaultWindow import DefaultWindow
+from buttons.BackButton import BackButton
+from windows.DefaultWindow import DefaultWindow
 
 class About():
 

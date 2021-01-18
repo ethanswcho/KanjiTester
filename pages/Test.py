@@ -5,10 +5,10 @@ import numpy as np
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea, QRadioButton, QButtonGroup
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtCore import QRect, QMargins
-from BackButton import BackButton
 
-from Result import Result
-from DefaultWindow import DefaultWindow
+from buttons.BackButton import BackButton
+from .Result import Result
+from windows.DefaultWindow import DefaultWindow
 
 # Test users on their understanding of Kanji. 
 # Show users kanjis, and ask for their meaning in multiple choice (4 choices per question)
@@ -40,7 +40,7 @@ class Test():
 
         # Find out which # the user selected for each question
         checked_options = [button_grp.checkedId() for button_grp in self.button_grps]
-        print(checked_options)
+        #print(checked_options)
 
         for n in range(self.num_qs):
             if checked_options[n] != -1:

@@ -5,9 +5,9 @@ import numpy as np
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTableWidget, QFormLayout, QGroupBox, QScrollArea, QRadioButton, QButtonGroup
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import QRect, QMargins
-from BackButton import BackButton
 
-from DefaultWindow import DefaultWindow
+from buttons.BackButton import BackButton
+from windows.DefaultWindow import DefaultWindow
 
 # Mark and analyze the users test results.
 # Show the mark and what questions they got wrong, along with what the correct answers were
